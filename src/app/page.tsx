@@ -161,17 +161,17 @@ export default function Home() {
   const renderButton = (content: string, onClick: () => void, className: string = '') => (
     <button
       onClick={onClick}
-      className={`bg-gray-700 hover:bg-gray-600 text-white font-bold py-4 px-6 rounded-full transition duration-300 ${className}`}
+      className={`bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 sm:py-4 px-3 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base ${className}`}
     >
       {content}
     </button>
   )
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-4">
-      <div className="bg-gray-800 p-8 rounded-3xl shadow-xl max-w-md w-full">
+    <div className="min-h-screen bg-gray-900 text-white flex items-center justify-center p-2 sm:p-4">
+      <div className="bg-gray-800 p-4 sm:p-8 rounded-3xl shadow-xl max-w-[95vw] sm:max-w-md w-full">
         <h1 className="text-3xl font-bold mb-6 text-center text-purple-400">World&apos;s Slowest Calculator</h1>
-        <div className="mb-4 bg-gray-700 p-4 rounded-2xl text-right text-2xl font-mono h-40 flex flex-col justify-between overflow-hidden">
+        <div className="mb-4 bg-gray-700 p-4 rounded-2xl text-2xl font-mono h-40 flex flex-col justify-between overflow-hidden">
           <div className="text-left text-sm text-gray-400 overflow-x-auto whitespace-nowrap">{equation}</div>
           <AnimatePresence mode="wait">
             {loading ? (
@@ -188,7 +188,7 @@ export default function Home() {
                 >
                   {loadingStates[loadingState].icon({ className: "text-4xl text-blue-400" })}
                 </motion.div>
-                <p className="text-sm mt-2">{loadingStates[loadingState].text}</p>
+                <p className="text-xs sm:text-sm mt-2">{loadingStates[loadingState].text}</p>
               </motion.div>
             ) : showQuestion ? (
               <motion.div
@@ -196,7 +196,7 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
-                className="text-xl flex items-center justify-center h-full"
+                className="text-lg sm:text-xl flex items-center justify-center h-full"
               >
                 Are you sure? 🤔
               </motion.div>
@@ -208,8 +208,8 @@ export default function Home() {
                 exit={{ opacity: 0, rotate: 10 }}
                 className="flex flex-col items-center justify-center h-full"
               >
-                <FaCoffee className="text-4xl text-yellow-400" />
-                <p className="text-sm mt-2">Coffee break!</p>
+                <FaCoffee className="text-3xl sm:text-4xl text-yellow-400" />
+                <p className="text-xs sm:text-sm mt-2">Coffee break!</p>
               </motion.div>
             ) : (
               <motion.div
@@ -217,7 +217,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                className="text-3xl"
+                className="text-3xl text-right"
               >
                 {display}
               </motion.div>
